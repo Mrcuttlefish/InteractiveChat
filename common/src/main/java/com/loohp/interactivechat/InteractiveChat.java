@@ -28,6 +28,8 @@ import com.loohp.interactivechat.config.ConfigManager;
 import com.loohp.interactivechat.data.Database;
 import com.loohp.interactivechat.data.PlayerDataManager;
 import com.loohp.interactivechat.debug.Debug;
+import com.loohp.interactivechat.hooks.craftengine.CraftEngineFontCompatibility;
+import com.loohp.interactivechat.hooks.craftengine.CraftEngineItemStackHook;
 import com.loohp.interactivechat.hooks.bedrock.BedrockHook;
 import com.loohp.interactivechat.hooks.bedrock.floodgate.FloodgateHookPlatform;
 import com.loohp.interactivechat.hooks.bedrock.geyser.GeyserHookPlatform;
@@ -357,6 +359,7 @@ public class InteractiveChat extends JavaPlugin {
     public static boolean ecoSetLoreOnMainThread = false;
     public static boolean excellentEnchantsStripEnchantments = false;
 
+    public static Boolean craftEngineHook = false;
     public static boolean craftEngineFontCompatibility = false;
     public static Set<String> craftEngineFontCompatibilityFonts = new HashSet<>();
 
@@ -623,6 +626,13 @@ public class InteractiveChat extends JavaPlugin {
                 getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[InteractiveChat] InteractiveChat has hooked into ExcellentEnchants!");
                 excellentenchantsHook = true;
             }
+        }
+
+        if (isPluginEnabled("CraftEngine")) {
+            CraftEngineFontCompatibility.clearCache();
+            CraftEngineItemStackHook.init();
+            getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[InteractiveChat] InteractiveChat has hooked into CraftEngine!");
+            craftEngineHook = true;
         }
 
         if (isPluginEnabled("LuckPerms")) {

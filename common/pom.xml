@@ -867,5 +867,12 @@
     		<scope>provided</scope>
     		<optional>true</optional>
 		</dependency>
+		<dependency>
+    	<groupId>net.momirealms</groupId>
+    		<artifactId>craft-engine-bukkit</artifactId>
+    		<version>0.0.67</version>
+    		<scope>provided</scope>
+    		<optional>true</optional>
+		</dependency>
 	</dependencies>
 </project>
