@@ -49,7 +49,7 @@ public class CraftEngineItemStackHook {
                 }
                 net.momirealms.craftengine.core.entity.player.Player cePlayer =
                         player != null ? BukkitAdaptors.adapt(player) : null;
-                return BukkitItemManager.instance().s2c(itemStack, cePlayer).orElse(itemStack);
+                return BukkitItemManager.instance().s2c(itemStack.clone(), cePlayer).orElse(itemStack);
             } catch (Throwable t) {
                 return itemStack;
             }

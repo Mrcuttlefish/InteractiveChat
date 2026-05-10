@@ -630,7 +630,9 @@ public class InteractiveChat extends JavaPlugin {
 
         if (isPluginEnabled("CraftEngine")) {
             CraftEngineFontCompatibility.clearCache();
-            CraftEngineItemStackHook.init();
+            if (getConfig().getBoolean("Settings.Hooks.CraftEngineItemTransform.Enabled", true)) {
+                CraftEngineItemStackHook.init();
+            }
             getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[InteractiveChat] InteractiveChat has hooked into CraftEngine!");
             craftEngineHook = true;
         }

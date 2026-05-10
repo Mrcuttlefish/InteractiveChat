@@ -177,6 +177,11 @@ Settings:
     EcoSetLoreOnMainThread: false
     ExcellentEnchantsStripEnchantments: false
 
+    CraftEngineItemTransform:
+      # Applies CraftEngine's server-to-client item transform when generating item previews.
+      # This ensures custom item models and icons display correctly in chat and Discord addon embeds.
+      Enabled: true
+
     CraftEngineFontCompatibility:
       # Restores missing Adventure font keys on raw CraftEngine bitmap glyphs.
       # This is useful when another chat plugin has already converted an emoji/image
